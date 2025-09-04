@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/static/uploads"
+public_folder: "/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "posts"
+    label: "Beiträge"
+    folder: "src/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sort: "date:desc"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Veröffentlicht am", name: "date", widget: "datetime" }
+      - { label: "Text", name: "body", widget: "markdown" }
+      - { label: "Angepinnt", name: "pinned", widget: "boolean", default: false }
+      - { label: "Ablaufdatum", name: "expires", widget: "datetime", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Dateien (PDF/Bilder)", name: "files", widget: "list", required: false, field: {label: "Datei", name: "file", widget: "file"} }
