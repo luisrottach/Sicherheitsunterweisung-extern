@@ -1,0 +1,44 @@
+---
+layout: base.njk
+title: Schwarzes Brett
+permalink: /board/index.html
+---
+
+<div class="search">
+  <input type="search" id="q" placeholder="Suche nach Titel, Text oder Tags …" />
+</div>
+
+<ul class="postlist" id="postlist">
+  {% for post in collections.activePosts %}
+  <li>
+    <article class="card {% if post.data.pinned %}pinned{% endif %}">
+      {% if post.data.pinned %}<div class="badge">📌 Angepinnt</div>{% endif %}
+      <h2>{{ post.data.title }}</h2>
+      <p class="muted">
+        {{ post.date | date("%d.%m.%Y") }}
+        {% if post.data.expires %} · gültig bis {{ post.data.expires | date("%d.%m.%Y %H:%M") }}{% endif %}
+      </p>
+      <div class="content">{{ post.templateContent | safe }}</div>
+      {% if post.data.tags %}
+      <p>
+        {% for t in post.data.tags %}
+          <span class="badge">#{{ t }}</span>
+        {% endfor %}
+      </p>
+      {% endif %}
+    </article>
+  </li>
+  {% endfor %}
+</ul>
+
+<script>
+  const q = document.getElementById('q');
+  const list = document.getElementById('postlist');
+  q.addEventListener('input', () => {
+    const term = q.value.toLowerCase();
+    list.querySelectorAll('li').forEach(li => {
+      const txt = li.innerText.toLowerCase();
+      li.style.display = txt.includes(term) ? '' : 'none';
+    });
+  });
+</script>

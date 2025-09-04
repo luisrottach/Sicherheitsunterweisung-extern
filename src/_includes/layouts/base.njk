@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title or "Schwarzes Brett" }}</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>Schwarzes Brett</h1>
+    </header>
+    <main class="container">
+      {{ content | safe }}
+    </main>
+    <footer class="container small">
+      <p>Powered by Netlify + Decap CMS + Eleventy</p>
+    </footer>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </body>
+</html>
