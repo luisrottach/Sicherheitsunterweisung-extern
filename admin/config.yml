@@ -16,7 +16,7 @@ collections:
     sort: "date:desc"
     fields:
       - { label: "Titel", name: "title", widget: "string" }
-      - { label: "Veröffentlicht am", name: "date", widget: "datetime" }
+      - { label: "Veröffentlicht am", name: "date", widget: "datetime", required: false }
       - { label: "Text", name: "body", widget: "markdown" }
       - { label: "Angepinnt", name: "pinned", widget: "boolean", default: false }
       - { label: "Ablaufdatum", name: "expires", widget: "datetime", required: false }
