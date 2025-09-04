@@ -1,5 +1,5 @@
 ---
-title: --------------- Bitte durchlesen----------------
+title: ----------Bitte durchlesen----------
 date: 2025-09-04T09:00:00.000+02:00
 pinned: false
 ---
